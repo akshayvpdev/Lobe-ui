@@ -1,26 +1,27 @@
-import { ActionIcon, Logo, SideNav } from '@lobehub/ui';
-import { Album, MessageSquare, Settings2 } from 'lucide-react';
-import { useState } from 'react';
+import { ActionIcon, Logo, SideNav } from "@lobehub/ui";
+import { Album, MessageSquare, Settings2 } from "lucide-react";
+import { useState } from "react";
 
 export default () => {
-  const [tab, setTab] = useState('chat');
+  const [tab, setTab] = useState("chat");
 
   return (
     <SideNav
+      style={{ backgroundColor: "white", height: "100vh" }}
       avatar={<Logo size={40} />}
       bottomActions={<ActionIcon icon={Settings2} />}
       topActions={
         <>
           <ActionIcon
-            active={tab === 'chat'}
+            active={tab === "chat"}
             icon={MessageSquare}
-            onClick={() => setTab('chat')}
+            onClick={() => setTab("chat")}
             size="large"
           />
           <ActionIcon
-            active={tab === 'market'}
+            active={tab === "market"}
             icon={Album}
-            onClick={() => setTab('market')}
+            onClick={() => setTab("market")}
             size="large"
           />
         </>

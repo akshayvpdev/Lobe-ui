@@ -1,10 +1,8 @@
 import { Layout } from "@lobehub/ui";
 import { createStyles } from "antd-style";
 import { Flexbox } from "react-layout-kit";
-
-import Navbar from "./Navbar";
-import DragableDiv from "./DragablePanel";
-import ChatInput from "./ChatInput";
+import MainNavbar from "./MainNavbar";
+import GridLayout from "./GridBackground";
 
 const useStyles = createStyles(({ css, token }) => ({
   footer: css`
@@ -19,9 +17,9 @@ const useStyles = createStyles(({ css, token }) => ({
 }));
 
 const MockData = ({ text }) =>
-  Array.from({ length: 10 })
+  Array.from({ length: 50 })
     .fill("")
-    .map((_, index) => <div style={{color:'yellow'}} key={index}>{text}</div>);
+    .map((_, index) => <div key={index}>{text}</div>);
 
 export default () => {
   const { styles } = useStyles();
@@ -30,29 +28,24 @@ export default () => {
       style={{
         height: "100%",
         flex: 1,
-        backgroundColor: "white",
+        backgroundColor: "rgb(245 245 245 / 94%)",
+        overflow: "hidden",
       }}>
       <Layout
+
         header={
           <Flexbox
             align={"center"}
             className={styles.header}
             justify={"center"}>
-            <Navbar />
+            <MainNavbar />
           </Flexbox>
-        }
-        toc={<DragableDiv />}>
-        <div >
-          <div style={{height:'449px',minWidth:'450px',overflowY:'scroll'}}>
-          <MockData text={"test data"} />
-          </div>
+        }>
+      
 
-          <div className="" style={{height:'150px',position:'relative'}}>
-          <ChatInput />
-          </div>
-
-
-        </div>
+        <GridLayout>
+          <MockData text="CONTENT" />
+        </GridLayout>
       </Layout>
     </div>
   );

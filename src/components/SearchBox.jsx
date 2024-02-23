@@ -18,9 +18,7 @@ const SearchBox = () => {
     { store },
   );
   return (
-
     <SearchBar {...controls} />
-
     )
 }
 
